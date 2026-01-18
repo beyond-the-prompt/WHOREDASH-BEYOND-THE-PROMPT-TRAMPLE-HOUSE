@@ -29,7 +29,7 @@
 
 <body class="bg-dark text-white min-h-screen relative">
 
-  <!-- Optional background video -->
+  <!-- Background Video -->
   <video
     autoplay
     muted
@@ -44,38 +44,14 @@
 
   <main class="container mx-auto px-4 py-10">
 
-    <!-- Hero -->
+    <!-- Hero Cards (Dynamic) -->
     <section class="text-center mb-16">
       <h1 class="text-5xl font-bold text-primary mb-4">Devil's Lettuce</h1>
       <p class="text-xl text-secondary mb-8">
         Get higher than your ex's standards with premium cannabis.
       </p>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
-          <img src="media/flower.jpg" alt="Top Shelf Flower" class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Top Shelf Flower</h3>
-            <p class="text-gray-400 text-sm">Sticky, loud, unapologetic.</p>
-          </div>
-        </div>
-
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
-          <img src="media/concentrates.jpg" alt="Concentrates" class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Concentrates</h3>
-            <p class="text-gray-400 text-sm">For people with goals.</p>
-          </div>
-        </div>
-
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
-          <img src="media/edibles.jpg" alt="Edibles" class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Edibles</h3>
-            <p class="text-gray-400 text-sm">Delayed decisions guaranteed.</p>
-          </div>
-        </div>
-      </div>
+      <div id="hero-cards" class="grid md:grid-cols-3 gap-6"></div>
     </section>
 
     <!-- Menu -->
@@ -208,6 +184,24 @@
   <script>
     feather.replace();
 
+    // Hero Cards Data
+    const heroCards = [
+      { title: "Top Shelf Flower", desc: "Sticky, loud, unapologetic.", img: "media/flower.jpg" },
+      { title: "Concentrates", desc: "For people with goals.", img: "media/concentrates.jpg" },
+      { title: "Edibles", desc: "Delayed decisions guaranteed.", img: "media/edibles.jpg" }
+    ];
+
+    const heroContainer = document.getElementById('hero-cards');
+    heroContainer.innerHTML = heroCards.map(card => `
+      <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <img src="${card.img}" alt="${card.title}" class="w-full h-48 object-cover" loading="lazy">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">${card.title}</h3>
+          <p class="text-gray-400 text-sm">${card.desc}</p>
+        </div>
+      </div>
+    `).join('');
+
     // Added to Cart popup logic
     const btn = document.getElementById('add-to-cart-btn');
     const popup = document.getElementById('cart-popup');
@@ -215,7 +209,6 @@
     btn.addEventListener('click', () => {
       popup.classList.remove('opacity-0');
       popup.classList.add('opacity-100');
-
       setTimeout(() => {
         popup.classList.remove('opacity-100');
         popup.classList.add('opacity-0');
