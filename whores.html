@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body class="bg-dark text-white min-h-screen relative">
     <background-video></background-video>
@@ -32,10 +30,8 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Whore cards will be populated by JavaScript -->
-            <div id="whores-container"></div>
-        </div>
+        <!-- FIX: container is now the grid -->
+        <div id="whores-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         
         <div class="mt-8 flex justify-center">
             <button id="load-more" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full">
@@ -52,22 +48,19 @@
     <script>
         feather.replace();
         
-        // Fetch and display whores
         document.addEventListener('DOMContentLoaded', function() {
             fetchWhores();
-            
             document.getElementById('load-more').addEventListener('click', fetchWhores);
         });
-async function fetchWhores() {
+
+        async function fetchWhores() {
             try {
-                // In a real app, you would fetch from your API
-                // This is mock data for demonstration
-                    const mockWhores = [
+                const mockWhores = [
                     {
                         id: 1,
                         name: "Crystal Methany",
                         video: "cam-girl20.mp4",
-rating: 4.9,
+                        rating: 4.9,
                         reviews: 420,
                         price: 69,
                         services: ["BDSM", "Anal", "FFM"],
@@ -78,7 +71,7 @@ rating: 4.9,
                         id: 2,
                         name: "Destiny Hoe",
                         video: "1.mp4",
-rating: 4.7,
+                        rating: 4.7,
                         reviews: 314,
                         price: 100,
                         services: ["CIM", "Fetish", "PSE"],
@@ -89,7 +82,7 @@ rating: 4.7,
                         id: 3, 
                         name: "Amber Lamps",
                         video: "masterbatorium.mp4",
-rating: 5.0,
+                        rating: 5.0,
                         reviews: 666,
                         price: 150,
                         services: ["Cowgirl", "Throat Goat", "ATM"],
@@ -100,7 +93,7 @@ rating: 5.0,
                         id: 4,
                         name: "Anita Baffsalot",
                         video: "cam-feed-girl.mp4",
-rating: 4.9,
+                        rating: 4.9,
                         reviews: 420,
                         price: 69,
                         services: ["ATM", "Anal", "GANGBANG"],
@@ -111,7 +104,7 @@ rating: 4.9,
                         id: 5,
                         name: "Destiny Hoe",
                         video: "bent.mp4",
-rating: 4.7,
+                        rating: 4.7,
                         reviews: 314,
                         price: 100,
                         services: ["Cum swallow", "Fetish", "Piss"],
@@ -121,8 +114,8 @@ rating: 4.7,
                     {
                         id: 6, 
                         name: "Amber Lamps",
-                        video: "deep-girl".mp4",
-rating: 5.0,
+                        video: "deep-girl.mp4",  // FIXED
+                        rating: 5.0,
                         reviews: 666,
                         price: 150,
                         services: ["Cowgirl", "Throat Goat", "ATM"],
@@ -130,12 +123,13 @@ rating: 5.0,
                         description: "We want to ride you like a stolen bike until the cops come"
                     },
                 ];
-            const container = document.getElementById('whores-container');
+
+                const container = document.getElementById('whores-container');
             
-            mockWhores.forEach(whore => {
-                const whoreCard = document.createElement('div');
-                whoreCard.className = 'bg-gray-800 rounded-xl overflow-hidden shadow-lg';
-                whoreCard.innerHTML = `
+                mockWhores.forEach(whore => {
+                    const whoreCard = document.createElement('div');
+                    whoreCard.className = 'bg-gray-800 rounded-xl overflow-hidden shadow-lg';
+                    whoreCard.innerHTML = `
                         <div class="relative">
                             <video autoplay loop muted class="w-full h-64 object-cover">
                                 <source src="${whore.video}" type="video/mp4">
@@ -146,7 +140,7 @@ rating: 5.0,
                             <div class="flex justify-between items-start mb-2">
                                 <h3 class="text-xl font-bold">${whore.name}</h3>
                                 <div class="flex items-center">
-                                    <i data-feather="star" class="text-yellow-400 mr-1"></i>
+                                    <i data-feather="star" class="mr-1"></i>
                                     <span>${whore.rating} (${whore.reviews})</span>
                                 </div>
                             </div>
@@ -156,7 +150,7 @@ rating: 5.0,
                             </div>
                             <div class="flex justify-between items-center">
                                 <span class="text-lg font-bold text-primary">${whore.price}/hr</span>
-                                <button class="bg-secondary hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full" data-book-whore data-id="${whore.id}" data-name="${whore.name}" data-price="${whore.price}" data-image="${whore.image}" data-services="${whore.services.join(',')}">
+                                <button class="bg-secondary hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full" data-book-whore data-id="${whore.id}">
                                     Book This Bitch
                                 </button>
                             </div>
@@ -166,6 +160,7 @@ rating: 5.0,
                 });
 
                 feather.replace();
+
             } catch (error) {
                 console.error('Error fetching whores:', error);
             }
@@ -173,14 +168,3 @@ rating: 5.0,
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
