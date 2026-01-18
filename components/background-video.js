@@ -27,10 +27,11 @@ transition: opacity 0.8s ease;
         }
 </style>
       <video autoplay loop muted>
-        <source src="tonya-girl.mp4" type="video/mp4">
+        <source src="tramplevid.mp4" type="video/mp4">
       </video>
     `;
   }
 }
+
 
 customElements.define('background-video', BackgroundVideo);
