@@ -1,230 +1,232 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devil's Lettuce | WhoreDash</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Devil's Lettuce | WhoreDash</title>
 
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/feather-icons"></script>
 
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: '#6b21a8',
-            secondary: '#c026d3',
-            dark: '#111827',
-            neonGreen: '#22c55e',
-            neonPink: '#ec4899'
-          }
-        }
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: '#6b21a8',
+        secondary: '#c026d3',
+        dark: '#111827',
+        neonGreen: '#22c55e',
+        neonPink: '#ec4899'
       }
     }
-  </script>
+  }
+}
+</script>
 </head>
 
 <body class="bg-dark text-white min-h-screen relative">
 
-  <!-- Background Video -->
-  <video autoplay muted loop playsinline class="fixed inset-0 w-full h-full object-cover opacity-20 -z-10">
-    <source src="tonya.mp4" type="video/mp4" />
-  </video>
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="fixed inset-0 w-full h-full object-cover opacity-20 -z-10">
+  <source src="tonya.mp4" type="video/mp4" />
+</video>
 
-  <custom-navbar></custom-navbar>
+<custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-4 py-10">
+<main class="container mx-auto px-4 py-10">
 
-    <!-- Hero -->
-    <section class="text-center mb-16">
-      <h1 class="text-5xl font-bold text-primary mb-4">Devil's Lettuce</h1>
-      <p class="text-xl text-secondary mb-8">
-        Get higher than your ex's standards with premium cannabis.
-      </p>
+  <!-- Hero -->
+  <section class="text-center mb-16">
+    <h1 class="text-5xl font-bold text-primary mb-4">Devil's Lettuce</h1>
+    <p class="text-xl text-secondary mb-8">
+      Get higher than your ex's standards with premium cannabis.
+    </p>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover-card">
-          <img src="https://images.unsplash.com/photo-1595943860371-8d64c2f77f08?auto=format&fit=crop&w=500&q=80" alt="Top Shelf Flower" class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Top Shelf Flower</h3>
-            <p class="text-gray-400 text-sm">Sticky, loud, unapologetic.</p>
-            <button class="mt-2 w-full bg-neonGreen hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full add-cart-btn">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover-card">
-          <img src="https://images.unsplash.com/photo-1598514983387-1b1f52c5e95c?auto=format&fit=crop&w=500&q=80" alt="Concentrates" class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Concentrates</h3>
-            <p class="text-gray-400 text-sm">For people with goals.</p>
-            <button class="mt-2 w-full bg-neonGreen hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full add-cart-btn">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover-card">
-          <img src="https://images.unsplash.com/photo-1590080871329-2e7d4d64cdd0?auto=format&fit=crop&w=500&q=80" alt="Edibles" class="w-full h-48 object-cover" loading="lazy" />
-          <div class="p-4">
-            <h3 class="text-lg font-bold">Edibles</h3>
-            <p class="text-gray-400 text-sm">Delayed decisions guaranteed.</p>
-            <button class="mt-2 w-full bg-neonGreen hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full add-cart-btn">
-              Add to Cart
-            </button>
-          </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1618810245798-d1b0aa1e234b?auto=format&fit=crop&w=800&q=80" alt="Top Shelf Flower" class="w-full h-48 object-cover" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Top Shelf Flower</h3>
+          <p class="text-gray-400 text-sm">Sticky, loud, unapologetic.</p>
         </div>
       </div>
-    </section>
 
-    <!-- Menu Section -->
-    <section class="mb-16">
-      <h2 class="text-4xl font-bold text-center text-neonGreen mb-4">
-        Cannabis Menu
-      </h2>
-      <p class="text-center text-gray-400 mb-10">From CBD to WTF</p>
+      <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1618646847167-0e0d012d2b57?auto=format&fit=crop&w=800&q=80" alt="Concentrates" class="w-full h-48 object-cover" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Concentrates</h3>
+          <p class="text-gray-400 text-sm">For people with goals.</p>
+        </div>
+      </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary hover:shadow-lg transition">
+        <img src="https://images.unsplash.com/photo-1618168249401-b8dbfa81f928?auto=format&fit=crop&w=800&q=80" alt="Edibles" class="w-full h-48 object-cover" loading="lazy" />
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Edibles</h3>
+          <p class="text-gray-400 text-sm">Delayed decisions guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Flower Card -->
-        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen hover-card">
-          <h3 class="text-2xl font-bold text-neonGreen mb-4">Flower</h3>
-          <div class="space-y-4">
-            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
-              <div>
-                <h4 class="font-bold">OG Kush</h4>
-                <p class="text-sm text-gray-400">Indica dominant</p>
-              </div>
+  <!-- Cannabis Menu -->
+  <section class="mb-16">
+    <h2 class="text-4xl font-bold text-center text-neonGreen mb-4">Cannabis Menu</h2>
+    <p class="text-center text-gray-400 mb-10">From CBD to WTF</p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Flower -->
+      <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen hover:shadow-lg transition">
+        <h3 class="text-2xl font-bold text-neonGreen mb-4">Flower</h3>
+        <div class="space-y-4">
+          <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div>
+              <h4 class="font-bold">OG Kush</h4>
+              <p class="text-sm text-gray-400">Indica dominant</p>
+            </div>
+            <div class="flex items-center gap-2">
               <span class="text-neonGreen font-bold">$60</span>
-              <button class="ml-4 bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full add-cart-btn">Add to Cart</button>
+              <button class="add-to-cart-btn bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full">Add</button>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
-              <div>
-                <h4 class="font-bold">Sour Diesel</h4>
-                <p class="text-sm text-gray-400">Sativa dominant</p>
-              </div>
+          </div>
+          <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div>
+              <h4 class="font-bold">Sour Diesel</h4>
+              <p class="text-sm text-gray-400">Sativa dominant</p>
+            </div>
+            <div class="flex items-center gap-2">
               <span class="text-neonGreen font-bold">$65</span>
-              <button class="ml-4 bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full add-cart-btn">Add to Cart</button>
+              <button class="add-to-cart-btn bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full">Add</button>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Concentrates Card -->
-        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen hover-card">
-          <h3 class="text-2xl font-bold text-neonGreen mb-4">Concentrates</h3>
-          <div class="space-y-4">
-            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
-              <div>
-                <h4 class="font-bold">Live Resin</h4>
-                <p class="text-sm text-gray-400">Full spectrum</p>
-              </div>
+      <!-- Concentrates -->
+      <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen hover:shadow-lg transition">
+        <h3 class="text-2xl font-bold text-neonGreen mb-4">Concentrates</h3>
+        <div class="space-y-4">
+          <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div>
+              <h4 class="font-bold">Live Resin</h4>
+              <p class="text-sm text-gray-400">Full spectrum</p>
+            </div>
+            <div class="flex items-center gap-2">
               <span class="text-neonGreen font-bold">$80</span>
-              <button class="ml-4 bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full add-cart-btn">Add to Cart</button>
+              <button class="add-to-cart-btn bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full">Add</button>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
-              <div>
-                <h4 class="font-bold">Rosin</h4>
-                <p class="text-sm text-gray-400">Solventless</p>
-              </div>
+          </div>
+          <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div>
+              <h4 class="font-bold">Rosin</h4>
+              <p class="text-sm text-gray-400">Solventless</p>
+            </div>
+            <div class="flex items-center gap-2">
               <span class="text-neonGreen font-bold">$90</span>
-              <button class="ml-4 bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full add-cart-btn">Add to Cart</button>
+              <button class="add-to-cart-btn bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full">Add</button>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Edibles Card -->
-        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen hover-card">
-          <h3 class="text-2xl font-bold text-neonGreen mb-4">Edibles</h3>
-          <div class="space-y-4">
-            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
-              <div>
-                <h4 class="font-bold">Gummies</h4>
-                <p class="text-sm text-gray-400">100mg THC</p>
-              </div>
+      <!-- Edibles -->
+      <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen hover:shadow-lg transition">
+        <h3 class="text-2xl font-bold text-neonGreen mb-4">Edibles</h3>
+        <div class="space-y-4">
+          <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div>
+              <h4 class="font-bold">Gummies</h4>
+              <p class="text-sm text-gray-400">100mg THC</p>
+            </div>
+            <div class="flex items-center gap-2">
               <span class="text-neonGreen font-bold">$25</span>
-              <button class="ml-4 bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full add-cart-btn">Add to Cart</button>
+              <button class="add-to-cart-btn bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full">Add</button>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
-              <div>
-                <h4 class="font-bold">Chocolate Bar</h4>
-                <p class="text-sm text-gray-400">200mg THC</p>
-              </div>
+          </div>
+          <div class="menu-card bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div>
+              <h4 class="font-bold">Chocolate Bar</h4>
+              <p class="text-sm text-gray-400">200mg THC</p>
+            </div>
+            <div class="flex items-center gap-2">
               <span class="text-neonGreen font-bold">$35</span>
-              <button class="ml-4 bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full add-cart-btn">Add to Cart</button>
+              <button class="add-to-cart-btn bg-neonGreen hover:bg-green-700 text-black font-bold py-1 px-3 rounded-full">Add</button>
             </div>
           </div>
         </div>
-
       </div>
-    </section>
 
-    <!-- Special Offers -->
-    <section class="bg-gray-900 rounded-xl p-8 border border-green-500 mb-12">
-      <h2 class="text-3xl font-bold text-neonGreen mb-6 text-center">Special Offers</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
-          <h3 class="text-xl font-bold mb-4">First Time Buyer</h3>
-          <p class="mb-4 text-gray-300">Get 20% off your first order with code: NEWSTONER</p>
-          <button class="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full">Apply Code</button>
-        </div>
-        <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
-          <h3 class="text-xl font-bold mb-4">VIP Members</h3>
-          <p class="mb-4 text-gray-300">Gold Hoe members get free delivery on all cannabis orders</p>
-          <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">Upgrade Now</button>
-        </div>
+    </div>
+  </section>
+
+  <!-- Special Offers -->
+  <section class="bg-gray-900 rounded-xl p-8 border border-green-500 mb-12 hover:shadow-lg transition">
+    <h2 class="text-3xl font-bold text-neonGreen mb-6 text-center">Special Offers</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-4">First Time Buyer</h3>
+        <p class="mb-4 text-gray-300">Get 20% off your first order with code: NEWSTONER</p>
+        <button class="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full">Apply Code</button>
       </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="text-center">
-      <h2 class="text-3xl font-bold text-neonPink mb-4">Ready to get lifted?</h2>
-      <p class="text-gray-400 mb-6">Discreet delivery. Questionable life choices.</p>
-      <div class="relative inline-block">
-        <button id="main-add-cart-btn" class="bg-neonGreen text-black font-bold py-3 px-6 rounded-full hover:opacity-90">
-          <i data-feather="shopping-cart" class="inline mr-2"></i> Add to Cart
-        </button>
-        <span id="main-cart-popup" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-0 transition-opacity duration-300">
-          Added to Cart
-        </span>
+      <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-4">VIP Members</h3>
+        <p class="mb-4 text-gray-300">Gold Hoe members get free delivery on all cannabis orders</p>
+        <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">Upgrade Now</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- CTA -->
+  <section class="text-center">
+    <h2 class="text-3xl font-bold text-neonPink mb-4">Ready to get lifted?</h2>
+    <p class="text-gray-400 mb-6">Discreet delivery. Questionable life choices.</p>
+    <div class="relative inline-block">
+      <button id="main-add-to-cart-btn" class="bg-neonGreen text-black font-bold py-3 px-6 rounded-full hover:opacity-90 focus:ring-2 focus:ring-neonGreen focus:outline-none">
+        <i data-feather="shopping-cart" class="inline mr-2"></i> Add to Cart
+      </button>
+      <span id="main-cart-popup" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-0 transition-opacity duration-300">
+        Added to Cart
+      </span>
+    </div>
+  </section>
 
-  <custom-footer></custom-footer>
+</main>
 
-  <script src="components/navbar.js"></script>
-  <script src="components/footer.js"></script>
-  <script src="script.js"></script>
-  <script>
-    feather.replace();
+<custom-footer></custom-footer>
 
-    // Added to cart popup for main button
-    const mainBtn = document.getElementById('main-add-cart-btn');
-    const mainPopup = document.getElementById('main-cart-popup');
-    mainBtn.addEventListener('click', () => {
-      mainPopup.classList.remove('opacity-0');
-      mainPopup.classList.add('opacity-100');
-      setTimeout(() => {
-        mainPopup.classList.remove('opacity-100');
-        mainPopup.classList.add('opacity-0');
-      }, 1000);
-    });
+<script src="components/navbar.js"></script>
+<script src="components/footer.js"></script>
+<script src="script.js"></script>
+<script>
+feather.replace();
 
-    // Added to cart popup for all menu cards
-    document.querySelectorAll('.add-cart-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const tempPopup = document.createElement('span');
-        tempPopup.textContent = 'Added to Cart';
-        tempPopup.className = 'absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-100';
-        btn.parentElement.appendChild(tempPopup);
-        setTimeout(() => btn.parentElement.removeChild(tempPopup), 1000);
-      });
-    });
-  </script>
+// Add to Cart popup logic for main CTA
+const mainBtn = document.getElementById('main-add-to-cart-btn');
+const mainPopup = document.getElementById('main-cart-popup');
+mainBtn.addEventListener('click', () => {
+  mainPopup.classList.remove('opacity-0');
+  mainPopup.classList.add('opacity-100');
+  setTimeout(() => {
+    mainPopup.classList.remove('opacity-100');
+    mainPopup.classList.add('opacity-0');
+  }, 1000);
+});
+
+// Add to Cart popup logic for each menu card
+document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const popup = document.createElement('span');
+    popup.textContent = 'Added to Cart';
+    popup.className = 'absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-0 transition-opacity duration-300';
+    btn.parentElement.appendChild(popup);
+    setTimeout(() => { popup.classList.add('opacity-100'); }, 10);
+    setTimeout(() => { popup.classList.remove('opacity-100'); setTimeout(()=>popup.remove(),300); }, 1000);
+  });
+});
+</script>
 </body>
 </html>
