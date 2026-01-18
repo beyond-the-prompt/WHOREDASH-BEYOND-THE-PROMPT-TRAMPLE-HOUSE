@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devil's Lettuce | WhoreDash</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#6b21a8',
+            secondary: '#c026d3',
+            dark: '#111827',
+            neonGreen: '#22c55e',
+            neonPink: '#ec4899'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-dark text-white min-h-screen relative">
+
+  <!-- Optional background video -->
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="fixed inset-0 w-full h-full object-cover opacity-20 -z-10"
+  >
+    <source src="media/cannabis-bg.mp4" type="video/mp4" />
+  </video>
+
+  <custom-navbar></custom-navbar>
+
+  <main class="container mx-auto px-4 py-10">
+
+    <!-- Hero -->
+    <section class="text-center mb-16">
+      <h1 class="text-5xl font-bold text-primary mb-4">Devil's Lettuce</h1>
+      <p class="text-xl text-secondary mb-8">
+        Get higher than your ex's standards with premium cannabis.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
+          <img src="media/flower.jpg" alt="Flower" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold">Top Shelf Flower</h3>
+            <p class="text-gray-400 text-sm">Sticky, loud, unapologetic.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
+          <img src="media/concentrates.jpg" alt="Concentrates" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold">Concentrates</h3>
+            <p class="text-gray-400 text-sm">For people with goals.</p>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
+          <img src="media/edibles.jpg" alt="Edibles" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-bold">Edibles</h3>
+            <p class="text-gray-400 text-sm">Delayed decisions guaranteed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="mb-16">
+      <h2 class="text-4xl font-bold text-center text-neonGreen mb-4">
+        Cannabis Menu
+      </h2>
+      <p class="text-center text-gray-400 mb-10">
+        From CBD to WTF
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- Flower -->
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
+          <h3 class="text-2xl font-bold text-neonGreen mb-4">Flower</h3>
+          <div class="space-y-4">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between">
+              <div>
+                <h4 class="font-bold">OG Kush</h4>
+                <p class="text-sm text-gray-400">Indica dominant</p>
+              </div>
+              <span class="text-neonGreen font-bold">$60</span>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between">
+              <div>
+                <h4 class="font-bold">Sour Diesel</h4>
+                <p class="text-sm text-gray-400">Sativa dominant</p>
+              </div>
+              <span class="text-neonGreen font-bold">$65</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Concentrates -->
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
+          <h3 class="text-2xl font-bold text-neonGreen mb-4">Concentrates</h3>
+          <div class="space-y-4">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between">
+              <div>
+                <h4 class="font-bold">Live Resin</h4>
+                <p class="text-sm text-gray-400">Full spectrum</p>
+              </div>
+              <span class="text-neonGreen font-bold">$80</span>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between">
+              <div>
+                <h4 class="font-bold">Rosin</h4>
+                <p class="text-sm text-gray-400">Solventless</p>
+              </div>
+              <span class="text-neonGreen font-bold">$90</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Edibles -->
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
+          <h3 class="text-2xl font-bold text-neonGreen mb-4">Edibles</h3>
+          <div class="space-y-4">
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between">
+              <div>
+                <h4 class="font-bold">Gummies</h4>
+                <p class="text-sm text-gray-400">100mg THC</p>
+              </div>
+              <span class="text-neonGreen font-bold">$25</span>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg flex justify-between">
+              <div>
+                <h4 class="font-bold">Chocolate Bar</h4>
+                <p class="text-sm text-gray-400">200mg THC</p>
+              </div>
+              <span class="text-neonGreen font-bold">$35</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+   <section class="bg-gray-900 rounded-xl p-8 border border-green-500 mb-12">
+            <h2 class="text-3xl font-bold neon-green mb-6 text-center">Special Offers</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">First Time Buyer</h3>
+                    <p class="mb-4 text-gray-300">Get 20% off your first order with code: NEWSTONER</p>
+                    <button class="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded-full">
+                        Apply Code
+                    </button>
+                </div>
+                <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
+                    <h3 class="text-xl font-bold mb-4">VIP Members</h3>
+                    <p class="mb-4 text-gray-300">Gold Hoe members get free delivery on all cannabis orders</p>
+                    <button class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full">
+                        Upgrade Now
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    <!-- CTA -->
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-neonPink mb-4">
+        Ready to get lifted?
+      </h2>
+      <p class="text-gray-400 mb-6">
+        Discreet delivery. Questionable life choices.
+      </p>
+      <button class="bg-neonGreen text-black font-bold py-3 px-6 rounded-full hover:opacity-90">
+        <i data-feather="shopping-cart" class="inline mr-2"></i>
+        Add to Cart
+      </button>
+    </section>
+
+  </main>
+
+  <custom-footer></custom-footer>
+
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="script.js"></script>
+  <script>
+    feather.replace();
+  </script>
+</body>
+</html>

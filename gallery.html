@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Depraved Gallery | WhoreDash</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6b21a8',
+                        secondary: '#c026d3',
+                        dark: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen relative">
+    <background-video></background-video>
+    <custom-navbar></custom-navbar>
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="mb-12">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4 text-primary">Depraved Gallery</h1>
+                <p class="text-xl mb-8 text-secondary">Visual proof that we deliver the most fucked‑up shit imaginable</p>
+                <div class="max-w-4xl mx-auto bg-gray-900/50 rounded-2xl p-8 backdrop-blur-sm">
+                    <p class="text-gray-300 text-lg">A collection of our finest work: tattoos that hurt just to look at, weed that'll melt your face, booze that'll erase memories, and whores that'll ruin you for normal relationships. Browse at your own risk.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Tabs -->
+        <section class="mb-8">
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="gallery-tab active bg-primary hover:bg-purple-800 text-white font-bold py-2 px-6 rounded-full" data-category="all">All</button>
+                <button class="gallery-tab bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-category="tattoos">Tattoos</button>
+                <button class="gallery-tab bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-category="whores">Whores</button>
+                <button class="gallery-tab bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-category="weed">Weed</button>
+                <button class="gallery-tab bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-category="booze">Booze</button>
+                <button class="gallery-tab bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-category="toys">Toys</button>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="gallery-container">
+                <!-- Images will be populated by JavaScript -->
+            </div>
+            <div class="mt-12 text-center">
+                <button id="load-more-gallery" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-8 rounded-full">
+                    Load More Degeneracy
+                </button>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
+            <div class="relative max-w-4xl max-h-full">
+                <button id="close-lightbox" class="absolute top-4 right-4 text-white bg-black/50 p-2 rounded-full">
+                    <i data-feather="x" class="w-6 h-6"></i>
+                </button>
+                <img id="lightbox-img" src="" alt="" class="max-w-full max-h-screen rounded-lg">
+                <div id="lightbox-caption" class="text-white text-center mt-4"></div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    <script src="components/background-video.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+
+        // Gallery data
+        const galleryItems = [
+            {
+                id: 1,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_ajuwe5ajuwe5ajuw.png",
+                category: "tattoos",
+                title: "Succubus Back Piece",
+                description: "Fresh ink still bleeding."
+            },
+            {
+                id: 2,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_rkx0vurkx0vurkx0.png",
+                category: "tattoos",
+                title: "Dragon Sleeve",
+                description: "15 hours of pain."
+            },
+            {
+                id: 3,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_wclsk0wclsk0wcls.png",
+                category: "tattoos",
+                title: "Skull & Roses",
+                description: "Classic never dies."
+            },
+            {
+                id: 4,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_yyiog7yyiog7yyio.png",
+                category: "tattoos",
+                title: "Japanese Koi",
+                description: "Traditional Japanese work."
+            },
+            {
+                id: 5,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/videos/N983XaMVfyzflBOVJ4jk%20(1).mp4",
+                category: "whores",
+                title: "Crystal Methany",
+                description: "Professional cocksucker in action."
+            },
+            {
+                id: 6,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/videos/6ab184a4-9d4b4bf2bccee5bbd6038dbea%20(1).mp4",
+                category: "whores",
+                title: "Destiny Hoe",
+                description: "Making clients question life choices."
+            },
+            {
+                id: 7,
+                image: "http://static.photos/nature/640x360/420",
+                category: "weed",
+                title: "OG Fuck Kush",
+                description: "Top‑shelf nugs."
+            },
+            {
+                id: 8,
+                image: "http://static.photos/food/640x360/666",
+                category: "booze",
+                title: "Jack Daniels",
+                description: "Liquid courage delivered."
+            },
+            {
+                id: 9,
+                image: "http://static.photos/technology/640x360/69",
+                category: "toys",
+                title: "Fleshlight 9000",
+                description: "Better than the real thing."
+            },
+            {
+                id: 10,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/a_hyper-stylized_spoof_of_the_ (3) (1).jpeg",
+                category: "tattoos",
+                title: "Hyper‑Stylized Art",
+                description: "Digital painting inspiration."
+            },
+            {
+                id: 11,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_o7zmmio7zmmio7zm.png",
+                category: "tattoos",
+                title: "Blackwork Mandala",
+                description: "Geometric perfection."
+            },
+            {
+                id: 12,
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_9disqc9disqc9dis.png",
+                category: "tattoos",
+                title: "Realistic Portrait",
+                description: "Tattooed memories."
+            }
+        ];
+
+        function renderGallery(category = 'all') {
+            const container = document.getElementById('gallery-container');
+            const filtered = category === 'all' ? galleryItems : galleryItems.filter(item => item.category === category);
+
+            container.innerHTML = filtered.map(item => `
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-110 transition-transform duration-300" data-category="${item.category}">
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-64 object-cover"
+                         data-title="${item.title}" 
+                         data-description="${item.description}">
+                    <div class="p-4">
+                        <h3 class="font-bold">${item.title}</h3>
+                        <p class="text-gray-400 text-sm">${item.description}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click event to images for lightbox
+            container.querySelectorAll('img').forEach(img => {
+                img.addEventListener('click', function() {
+                    const lightbox = document.getElementById('lightbox');
+                    const lightboxImg = document.getElementById('lightbox-img');
+                    const caption = document.getElementById('lightbox-caption');
+                    
+                    lightboxImg.src = this.src;
+                    caption.textContent = `${this.dataset.title} - ${this.dataset.description}`;
+                    lightbox.classList.remove('hidden');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderGallery();
+
+            // Tab filtering
+            document.querySelectorAll('.gallery-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active', 'bg-primary'));
+                    this.classList.add('active', 'bg-primary');
+                    this.classList.remove('bg-gray-800');
+                    const category = this.dataset.category;
+                    renderGallery(category);
+                });
+            });
+
+            // Load more button
+            document.getElementById('load-more-gallery').addEventListener('click', function() {
+                // Simulate loading more items
+                const extraItems = galleryItems.slice(0, 4).map((item, idx) => ({
+                    ...item,
+                    id: item.id + 100 + idx,
+                    title: `${item.title} (Extra)`
+                }));
+                galleryItems.push(...extraItems);
+                renderGallery();
+                this.textContent = 'No More Content';
+                this.disabled = true;
+                this.classList.add('opacity-50');
+            });
+
+            // Lightbox controls
+            const lightbox = document.getElementById('lightbox');
+            const closeLightbox = document.getElementById('close-lightbox');
+
+            closeLightbox.addEventListener('click', () => lightbox.classList.add('hidden'));
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

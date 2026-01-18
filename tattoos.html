@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ink & Needles | WhoreDash</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6b21a8',
+                        secondary: '#c026d3',
+                        dark: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen relative">
+    <background-video></background-video>
+    <custom-navbar></custom-navbar>
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="mb-12">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-4 text-primary">Ink & Needles</h1>
+                <p class="text-xl mb-8 text-secondary">Permanent reminders of your poor life choices, inked by degenerates for degenerates</p>
+                <div class="max-w-4xl mx-auto bg-gray-900/50 rounded-2xl p-8 backdrop-blur-sm">
+                    <p class="text-gray-300 text-lg">From traditional to hyper‑realistic, our artists will tattoo anything from naked succubi on your back to your ex's name on your dick (we don't judge). Walk‑ins welcome, but appointments recommended if you want something that won't look like a prison tattoo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Tabs -->
+        <section class="mb-8">
+            <div class="flex flex-wrap gap-2 justify-center">
+                <button class="tab-btn active bg-primary hover:bg-purple-800 text-white font-bold py-2 px-6 rounded-full" data-filter="all">All</button>
+                <button class="tab-btn bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-filter="traditional">Traditional</button>
+                <button class="tab-btn bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-filter="realism">Realism</button>
+                <button class="tab-btn bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-filter="neo">Neo‑Traditional</button>
+                <button class="tab-btn bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-filter="japanese">Japanese</button>
+                <button class="tab-btn bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-filter="blackwork">Blackwork</button>
+                <button class="tab-btn bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-6 rounded-full" data-filter="portrait">Portrait</button>
+            </div>
+        </section>
+
+        <!-- Tattoo Cards Grid -->
+        <section>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="tattoos-container">
+                <!-- Cards will be populated by JavaScript -->
+            </div>
+            <div class="mt-12 text-center">
+                <button id="load-more-tattoos" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-8 rounded-full">
+                    Load More Designs
+                </button>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="mt-16 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl p-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4">Ready to Get Inked?</h2>
+                <p class="text-gray-300 mb-6">Book a consultation with one of our artists. Bring your own design or let us create something uniquely fucked up for you.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="tel:+15551234567" class="bg-secondary hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center">
+                        <i data-feather="phone" class="mr-2"></i> Call to Book
+                    </a>
+                    <button id="booking-modal-btn" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center">
+                        <i data-feather="calendar" class="mr-2"></i> Book Online
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aftercare Warning -->
+        <section class="mt-12 bg-gradient-to-r from-red-900/30 to-yellow-900/30 rounded-2xl p-6 border border-red-800">
+            <div class="flex items-start">
+                <i data-feather="alert-triangle" class="w-10 h-10 text-red-400 mr-4 mt-1"></i>
+                <div>
+                    <h3 class="text-xl font-bold mb-2">Tattoo Aftercare (Don't Be a Dumbass)</h3>
+                    <p class="text-gray-300">Keep it clean, don't pick the scabs, and for fuck's sake don't go swimming in a dirty river. Infections are not a good look. Follow your artist's instructions or you'll end up with a blob instead of that sick dragon.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <!-- Booking Modal (hidden by default) -->
+    <div id="booking-modal" class="hidden fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-2xl max-w-md w-full p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Book a Tattoo Session</h3>
+                <button id="close-modal" class="text-gray-400 hover:text-white">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <form id="booking-form">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Your Name</label>
+                    <input type="text" class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-lg" placeholder="John 'Inked' Doe" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Email or Phone</label>
+                    <input type="text" class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-lg" placeholder="contact@example.com" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Preferred Date</label>
+                    <input type="date" class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-lg" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Design Description</label>
+                    <textarea class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-lg" rows="3" placeholder="I want a dragon fucking a unicorn on my lower back..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-secondary hover:bg-pink-700 text-white font-bold py-3 rounded-full">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="components/background-video.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+
+        // Tattoo data
+        const tattoos = [
+            {
+                id: 1,
+                title: "Succubus Back Piece",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_ajuwe5ajuwe5ajuw.png",
+                style: "realism",
+                price: "500+",
+                artist: "Viper",
+                time: "8-12 hours",
+                description: "Full back demon goddess that'll make your pastor cry."
+            },
+            {
+                id: 2,
+                title: "Neo Dragon Sleeve",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_rkx0vurkx0vurkx0.png",
+                style: "neo",
+                price: "1200+",
+                artist: "Jin",
+                time: "15-20 hours",
+                description: "Because basic bitches get tribal."
+            },
+            {
+                id: 3,
+                title: "Skull & Roses Chest",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_wclsk0wclsk0wcls.png",
+                style: "traditional",
+                price: "800+",
+                artist: "Bones",
+                time: "10-14 hours",
+                description: "For when you want to look tough but still cry during rom‑coms."
+            },
+            {
+                id: 4,
+                title: "Japanese Koi Half Sleeve",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_yyiog7yyiog7yyio.png",
+                style: "japanese",
+                price: "900+",
+                artist: "Hiro",
+                time: "12-16 hours",
+                description: "Traditional Japanese koi that symbolizes perseverance (or just looks cool)."
+            },
+            {
+                id: 5,
+                title: "Blackwork Mandala",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_o7zmmio7zmmio7zm.png",
+                style: "blackwork",
+                price: "400+",
+                artist: "Luna",
+                time: "6-8 hours",
+                description: "Geometric patterns for when you're deep but not that deep."
+            },
+            {
+                id: 6,
+                title: "Realistic Portrait",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_9disqc9disqc9dis.png",
+                style: "portrait",
+                price: "1500+",
+                artist: "Chloe",
+                time: "20+ hours",
+                description: "We'll tattoo your dead pet (or favorite porn star) looking alive."
+            },
+            {
+                id: 7,
+                title: "Traditional Panther",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/Gemini_Generated_Image_7jbjj47jbjj47jbj.png",
+                style: "traditional",
+                price: "300+",
+                artist: "Rex",
+                time: "4-6 hours",
+                description: "Old‑school tough guy shit. Works on any body part."
+            },
+            {
+                id: 8,
+                title: "Cyberpunk Biomech",
+                image: "https://huggingface.co/spaces/buddybudboi/Whoredashers/resolve/main/images/a_neon-lit_digital_painting_of (1).jpeg",
+                style: "neo",
+                price: "1000+",
+                artist: "Zero",
+                time: "15-18 hours",
+                description: "Robots and flesh merging because you're part machine anyway."
+            }
+        ];
+
+        function renderTattoos(filter = 'all') {
+            const container = document.getElementById('tattoos-container');
+            const filtered = filter === 'all' ? tattoos : tattoos.filter(t => t.style === filter);
+            
+            container.innerHTML = filtered.map(tattoo => `
+                <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover-card" data-style="${tattoo.style}">
+                    <img src="${tattoo.image}" alt="${tattoo.title}" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">${tattoo.title}</h3>
+                            <span class="text-sm bg-gray-700 px-3 py-1 rounded-full">${tattoo.style}</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">${tattoo.description}</p>
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <div class="text-sm text-gray-400">Artist: ${tattoo.artist}</div>
+                                <div class="text-sm text-gray-400">Time: ${tattoo.time}</div>
+                            </div>
+                            <span class="text-lg font-bold text-primary">$${tattoo.price}</span>
+                        </div>
+                        <button class="w-full bg-secondary hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full book-tattoo-btn"
+                                data-id="${tattoo.id}"
+                                data-title="${tattoo.title}"
+                                data-price="${tattoo.price}">
+                            Book This Design
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+            
+            feather.replace();
+            
+            // Add event listeners to book buttons
+            document.querySelectorAll('.book-tattoo-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = document.getElementById('booking-modal');
+                    modal.classList.remove('hidden');
+                    const form = document.getElementById('booking-form');
+                    const titleInput = form.querySelector('textarea');
+                    titleInput.value = `I'm interested in: ${this.dataset.title} ($${this.dataset.price})`;
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTattoos();
+            
+            // Tab filtering
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'bg-primary'));
+                    this.classList.add('active', 'bg-primary');
+                    this.classList.remove('bg-gray-800');
+                    const filter = this.dataset.filter;
+                    renderTattoos(filter);
+                });
+            });
+            
+            // Load more button
+            document.getElementById('load-more-tattoos').addEventListener('click', function() {
+                // In a real app, you'd fetch more data
+                alert('More tattoo designs loaded! (This is a demo)');
+                this.textContent = 'No More Designs';
+                this.disabled = true;
+                this.classList.add('opacity-50');
+            });
+            
+            // Modal controls
+            const modal = document.getElementById('booking-modal');
+            const openBtn = document.getElementById('booking-modal-btn');
+            const closeBtn = document.getElementById('close-modal');
+            
+            openBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+            closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+            
+            // Close modal on outside click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.add('hidden');
+            });
+            
+            // Booking form submission
+            document.getElementById('booking-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Booking request sent! Our artist will contact you within 24 hours.');
+                modal.classList.add('hidden');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | WhoreDash</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6b21a8',
+                        secondary: '#c026d3',
+                        dark: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen relative">
+    <background-video></background-video>
+    <custom-navbar></custom-navbar>
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-md mx-auto">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold mb-2 text-primary">Welcome Back, Degenerate</h1>
+                <p class="text-gray-400">Login to order whores, weed, and booze like the pathetic fuck you are</p>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-8 shadow-2xl border border-gray-700">
+                <form id="login-form">
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email or Phone Number</label>
+                        <input type="text" id="email" required 
+                            class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                            placeholder="your@email.com">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="password" class="block text-sm font-medium mb-2 text-gray-300">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" required 
+                                class="w-full bg-gray-900 border border-gray-700 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary transition-all" 
+                                placeholder="••••••••">
+                            <button type="button" id="toggle-password" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white">
+                                <i data-feather="eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="remember" class="mr-2 w-4 h-4 accent-secondary">
+                            <label for="remember" class="text-sm text-gray-300">Remember me</label>
+                        </div>
+                        <a href="#" id="forgot-password" class="text-secondary hover:underline text-sm">Forgot password?</a>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary hover:from-purple-700 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-full text-lg mb-4 transition-all transform hover:scale-105">
+                        Login
+                    </button>
+                    
+                    <div class="text-center mb-6">
+                        <span class="text-gray-400 text-sm">Or continue with</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <button type="button" class="social-login bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center transition-all border border-gray-700">
+                            <i data-feather="facebook" class="mr-2"></i> Facebook
+                        </button>
+                        <button type="button" class="social-login bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-4 rounded-lg flex items-center justify-center transition-all border border-gray-700">
+                            <i data-feather="github" class="mr-2"></i> GitHub
+                        </button>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-gray-400">Don't have an account? <a href="#" id="signup-link" class="text-secondary hover:underline font-bold">Sign up here</a></p>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500">By logging in, you agree to our <a href="#" class="text-secondary hover:underline">Terms of Service</a> and confirm that you're at least 18 years old (or at least look like it).</p>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    <script src="components/background-video.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="components/cart-system.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        
+        // Toggle password visibility
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.setAttribute('data-feather', 'eye-off');
+            } else {
+                passwordInput.type = 'password';
+                icon.setAttribute('data-feather', 'eye');
+            }
+            feather.replace();
+        });
+        
+        // Login form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const remember = document.getElementById('remember').checked;
+            
+            // Simple validation
+            if (!email || !password) {
+                showNotification('Please fill in all fields, you dumb fuck.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Logging in...';
+            submitBtn.disabled = true;
+            
+            // Mock login - in a real app, this would be an API call
+            setTimeout(() => {
+                const userData = {
+                    email: email,
+                    loggedIn: true,
+                    timestamp: new Date().toISOString(),
+                    remember: remember,
+                    username: email.split('@')[0] || 'User'
+                };
+                
+                localStorage.setItem('whoredashUser', JSON.stringify(userData));
+                
+                // Show success message
+                showNotification('✓ Login successful! Welcome back, degenerate.', 'success');
+                
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1500);
+            }, 1000);
+        });
+        
+        // Social login buttons
+        document.querySelectorAll('.social-login').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const platform = this.textContent.trim();
+                showNotification(`${platform} login coming soon, you impatient fuck!`, 'error');
+            });
+        });
+        
+        // Forgot password link
+        document.getElementById('forgot-password').addEventListener('click', function(e) {
+            e.preventDefault();
+            showNotification('Password reset coming soon. For now, just make a new account, dipshit.', 'error');
+        });
+        
+        // Signup link
+        document.getElementById('signup-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            showNotification('Sign up page coming soon. Just use any email/password to test login!', 'error');
+        });
+        
+        function showNotification(message, type) {
+            // Remove existing notifications
+            const existing = document.querySelectorAll('.login-notification');
+            existing.forEach(n => n.remove());
+            
+            const notification = document.createElement('div');
+            const bgColor = type === 'success' ? 'from-emerald-600 to-emerald-500' : 'from-red-600 to-red-500';
+            notification.className = `login-notification fixed top-24 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${bgColor} text-white px-6 py-3 rounded-lg shadow-2xl z-[10000]`;
+            notification.style.animation = 'slideDown 0.4s ease';
+            notification.innerHTML = `<span class="font-bold">${message}</span>`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideUp 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+        
+        // Check if already logged in
+        const user = JSON.parse(localStorage.getItem('whoredashUser') || 'null');
+        if (user && user.loggedIn) {
+            showNotification('You\'re already logged in! Redirecting...', 'success');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+    </script>
+    <style>
+        @keyframes slideDown {
+            0% { transform: translate(-50%, -100px); opacity: 0; }
+            100% { transform: translate(-50%, 0); opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            0% { transform: translate(-50%, 0); opacity: 1; }
+            100% { transform: translate(-50%, -100px); opacity: 0; }
+        }
+        
+        input:focus {
+            border-color: #c026d3;
+        }
+        
+        .login-notification {
+            min-width: 300px;
+            text-align: center;
+        }
+    </style>
+</body>
+</html>

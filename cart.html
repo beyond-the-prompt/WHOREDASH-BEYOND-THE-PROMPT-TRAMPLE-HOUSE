@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | WhoreDash</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6b21a8',
+                        secondary: '#c026d3',
+                        dark: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-white min-h-screen relative">
+    <background-video></background-video>
+    <custom-navbar></custom-navbar>
+    <main class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl font-bold text-primary">Your Depraved Cart</h1>
+            <a href="/" class="text-secondary hover:underline flex items-center">
+                <i data-feather="arrow-left" class="mr-2"></i> Continue Shopping
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Cart Items -->
+            <div class="lg:col-span-2">
+                <div id="cart-items" class="space-y-4">
+                    <!-- Cart items will be loaded here -->
+                    <div class="text-center py-12">
+                        <i data-feather="shopping-cart" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Your cart is empty</h3>
+                        <p class="text-gray-400 mb-6">Add some whores, weed, or booze to get started</p>
+                        <a href="/" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full">
+                            Browse Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-gray-800 rounded-xl p-6 sticky top-24">
+                    <h2 class="text-2xl font-bold mb-6">Order Summary</h2>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Subtotal</span>
+                            <span id="subtotal" class="font-bold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Delivery Fee</span>
+                            <span class="font-bold text-emerald-400">FREE</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Service Fee</span>
+                            <span id="service-fee" class="font-bold">$5.00</span>
+                        </div>
+                        <div class="border-t border-gray-700 pt-4">
+                            <div class="flex justify-between text-lg">
+                                <span class="font-bold">Total</span>
+                                <span id="total" class="font-bold text-primary text-2xl">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="promo-code" class="block text-sm font-medium mb-2">Promo Code</label>
+                        <div class="flex">
+                            <input type="text" id="promo-code" placeholder="DEPRAVED20" class="flex-grow bg-gray-900 border border-gray-700 text-white px-4 py-2 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                            <button id="apply-promo" class="bg-secondary hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-r-lg">Apply</button>
+                        </div>
+                    </div>
+
+                    <button id="checkout-btn" class="w-full bg-secondary hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-full text-lg mb-4">
+                        Checkout Now
+                    </button>
+                    
+                    <p class="text-xs text-gray-400 text-center">
+                        By checking out, you agree to our <a href="#" class="text-secondary hover:underline">Terms of Service</a> and acknowledge that you're a degenerate.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    <script src="components/background-video.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('whoredashCart')) || [];
+            const container = document.getElementById('cart-items');
+            const subtotalEl = document.getElementById('subtotal');
+            const totalEl = document.getElementById('total');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <i data-feather="shopping-cart" class="w-16 h-16 text-gray-600 mx-auto mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Your cart is empty</h3>
+                        <p class="text-gray-400 mb-6">Add some whores, weed, or booze to get started</p>
+                        <a href="/" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full">
+                            Browse Products
+                        </a>
+                    </div>
+                `;
+                subtotalEl.textContent = '$0.00';
+                totalEl.textContent = '$0.00';
+                return;
+            }
+            
+            let subtotal = 0;
+            
+            container.innerHTML = cart.map((item, index) => {
+                subtotal += item.price;
+                return `
+                    <div class="bg-gray-800 rounded-xl p-4 flex items-center">
+                        <img src="${item.image || 'http://static.photos/technology/100x100/' + (index + 1)}" 
+                             alt="${item.name}" 
+                             class="w-20 h-20 object-cover rounded-lg mr-4">
+                        <div class="flex-grow">
+                            <h3 class="font-bold text-lg">${item.name}</h3>
+                            <p class="text-gray-400 text-sm">${item.category || 'Product'}</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-primary text-xl mb-2">$${item.price.toFixed(2)}</div>
+                            <button class="text-red-400 hover:text-red-300 remove-item" data-index="${index}">
+                                <i data-feather="trash-2"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            const serviceFee = 5.00;
+            const total = subtotal + serviceFee;
+            
+            subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            totalEl.textContent = `$${total.toFixed(2)}`;
+            
+            // Add event listeners for remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    removeFromCart(index);
+                });
+            });
+            
+            feather.replace();
+        }
+        
+        function removeFromCart(index) {
+            const cart = JSON.parse(localStorage.getItem('whoredashCart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('whoredashCart', JSON.stringify(cart));
+            
+            // Update navbar badge
+            document.querySelectorAll('custom-navbar').forEach(nav => {
+                if (nav.updateCartBadge) {
+                    nav.updateCartBadge(cart.length);
+                }
+            });
+            
+            loadCart();
+            
+            // Show notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-rose-600 text-white px-6 py-3 rounded-lg shadow-xl z-50';
+            notification.innerHTML = `<span>Item removed from cart</span>`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCart();
+            
+            // Update navbar badge
+            const cart = JSON.parse(localStorage.getItem('whoredashCart')) || [];
+            document.querySelectorAll('custom-navbar').forEach(nav => {
+                if (nav.updateCartBadge) {
+                    nav.updateCartBadge(cart.length);
+                }
+            });
+            
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                const cart = JSON.parse(localStorage.getItem('whoredashCart')) || [];
+                if (cart.length === 0) {
+                    alert('Your cart is empty, you degenerate!');
+                    return;
+                }
+                
+                alert(`Order placed! Total: $${document.getElementById('total').textContent.substring(1)}\nYour depraved order will be delivered in 30 minutes or less.`);
+                localStorage.removeItem('whoredashCart');
+                loadCart();
+                
+                // Update navbar badge
+                document.querySelectorAll('custom-navbar').forEach(nav => {
+                    if (nav.updateCartBadge) {
+                        nav.updateCartBadge(0);
+                    }
+                });
+            });
+            
+            // Promo code
+            document.getElementById('apply-promo').addEventListener('click', function() {
+                const code = document.getElementById('promo-code').value.toUpperCase();
+                if (code === 'DEPRAVED20') {
+                    const totalEl = document.getElementById('total');
+                    const currentTotal = parseFloat(totalEl.textContent.substring(1));
+                    const discounted = currentTotal * 0.8;
+                    totalEl.textContent = `$${discounted.toFixed(2)}`;
+                    
+                    // Show success message
+                    const notification = document.createElement('div');
+                    notification.className = 'fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white px-6 py-3 rounded-lg shadow-xl z-50';
+                    notification.innerHTML = `<span>Promo code applied! 20% off your order.</span>`;
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 3000);
+                } else {
+                    alert('Invalid promo code, you poor bastard.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

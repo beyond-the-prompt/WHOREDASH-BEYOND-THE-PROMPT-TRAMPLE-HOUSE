@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Cocksuckers | WhoreDash</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-dark text-white min-h-screen relative">
+    <background-video></background-video>
+    <custom-navbar></custom-navbar>
+<main class="container mx-auto px-4 py-8">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl font-bold text-primary">Our Premium Cum Dumpsters</h1>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <select class="bg-gray-800 border border-gray-700 text-white px-4 py-2 pr-8 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary">
+                        <option>Sort by: Hotness</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Rating</option>
+                        <option>Distance</option>
+                    </select>
+                </div>
+                <button class="bg-secondary hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-lg flex items-center">
+                    <i data-feather="filter" class="mr-2"></i> Filters
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Whore cards will be populated by JavaScript -->
+            <div id="whores-container"></div>
+        </div>
+        
+        <div class="mt-8 flex justify-center">
+            <button id="load-more" class="bg-primary hover:bg-purple-800 text-white font-bold py-3 px-6 rounded-full">
+                Load More Sluts
+            </button>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+    <script src="components/background-video.js"></script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        
+        // Fetch and display whores
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchWhores();
+            
+            document.getElementById('load-more').addEventListener('click', fetchWhores);
+        });
+async function fetchWhores() {
+            try {
+                // In a real app, you would fetch from your API
+                // This is mock data for demonstration
+                    const mockWhores = [
+                    {
+                        id: 1,
+                        name: "Crystal Methany",
+                        video: "https://huggingface.co/spaces/buddybudboi/sinful-succubus-express-delivery/resolve/main/videos/N983XaMVfyzflBOVJ4jk%20(1).mp4",
+rating: 4.9,
+                        reviews: 420,
+                        price: 69,
+                        services: ["BBBJ", "Anal", "GFE"],
+                        distance: "24 min",
+                        description: "I'll suck your dick so good you'll forget your mom's name"
+                    },
+                    {
+                        id: 2,
+                        name: "Destiny Hoe",
+                        video: "https://huggingface.co/spaces/buddybudboi/sinful-succubus-express-delivery/resolve/main/videos/6ab184a4-9d4b-4bf2-bcce-5bbd6038dbea%20(1).mp4",
+rating: 4.7,
+                        reviews: 314,
+                        price: 100,
+                        services: ["CIM", "Fetish", "PSE"],
+                        distance: "15 min",
+                        description: "I'll make you cum so hard you'll question your life choices"
+                    },
+                    {
+                        id: 3, 
+                        name: "Amber Lamps",
+                        video: "https://huggingface.co/spaces/buddybudboi/sinful-succubus-express-delivery/resolve/main/videos/674ef1645e262d9d393a68c02449648c%20(1).mp4",
+rating: 5.0,
+                        reviews: 666,
+                        price: 150,
+                        services: ["Cowgirl", "Throat Goat", "ATM"],
+                        distance: "32 min",
+                        description: "I'll ride you like a stolen bike until the cops come"
+                    },
+                    {
+                        id: 4,
+                        name: "Tiffany Twat",
+                        image: "http://static.photos/people/640x360/4",
+                        rating: 4.5,
+                        reviews: 255,
+                        price: 85,
+                        services: ["Greek", "Roleplay", "CIM"],
+                        distance: "18 min",
+                        description: "Your dick will feel like it died and went to heaven"
+                    },
+                    {
+                        id: 5,
+                        name: "Veronica Vixen",
+                        image: "http://static.photos/people/640x360/5",
+                        rating: 4.8,
+                        reviews: 389,
+                        price: 120,
+                        services: ["PSE", "Anal", "Deep Throat"],
+                        distance: "45 min",
+                        description: "I'll turn you into a porn star for an hour"
+                    },
+                    {
+                        id: 6,
+                        name: "Luna Loveless",
+                        image: "http://static.photos/people/640x360/6",
+                        rating: 4.3,
+                        reviews: 187,
+                        price: 75,
+                        services: ["GFE", "BBBJ", "Cowgirl"],
+                        distance: "28 min",
+                        description: "The girlfriend experience without the commitment"
+                    }
+                ];
+            const container = document.getElementById('whores-container');
+            
+            mockWhores.forEach(whore => {
+                const whoreCard = document.createElement('div');
+                whoreCard.className = 'bg-gray-800 rounded-xl overflow-hidden shadow-lg';
+                whoreCard.innerHTML = `
+                        <div class="relative">
+                            <video autoplay loop muted class="w-full h-64 object-cover">
+                                <source src="${whore.video}" type="video/mp4">
+                            </video>
+                            <div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">${whore.distance} AWAY</div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="text-xl font-bold">${whore.name}</h3>
+                                <div class="flex items-center">
+                                    <i data-feather="star" class="text-yellow-400 mr-1"></i>
+                                    <span>${whore.rating} (${whore.reviews})</span>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 mb-4">"${whore.description}"</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${whore.services.map(service => `<span class="bg-gray-700 px-3 py-1 rounded-full text-sm">${service}</span>`).join('')}
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold text-primary">${whore.price}/hr</span>
+                                <button class="bg-secondary hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-full" data-book-whore data-id="${whore.id}" data-name="${whore.name}" data-price="${whore.price}" data-image="${whore.image}" data-services="${whore.services.join(',')}">
+                                    Book This Bitch
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(whoreCard);
+                });
+
+                feather.replace();
+            } catch (error) {
+                console.error('Error fetching whores:', error);
+            }
+        }
+    </script>
+</body>
+</html>
