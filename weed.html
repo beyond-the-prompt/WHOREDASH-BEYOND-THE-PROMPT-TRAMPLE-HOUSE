@@ -29,20 +29,21 @@
 
 <body class="bg-dark text-white min-h-screen relative">
 
-  <!-- Background video -->
+  <!-- Background Video -->
   <video
     autoplay
     muted
     loop
     playsinline
-    class="fixed inset-0 w-full h-full object-cover opacity-50 z-0"
+    class="fixed inset-0 w-full h-full object-cover opacity-20 -z-10"
   >
-    <source src="media/cannabis-bg.mp4" type="video/mp4" />
+    <source src="tonya.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
   </video>
 
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-4 py-10 relative z-10">
+  <main class="container mx-auto px-4 py-10">
 
     <!-- Hero -->
     <section class="text-center mb-16">
@@ -52,7 +53,7 @@
       </p>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-gray-900/70 rounded-xl overflow-hidden border border-primary hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
           <img src="media/flower.jpg" alt="Top Shelf Flower" class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-4">
             <h3 class="text-lg font-bold">Top Shelf Flower</h3>
@@ -60,7 +61,7 @@
           </div>
         </div>
 
-        <div class="bg-gray-900/70 rounded-xl overflow-hidden border border-primary hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
           <img src="media/concentrates.jpg" alt="Concentrates" class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-4">
             <h3 class="text-lg font-bold">Concentrates</h3>
@@ -68,7 +69,7 @@
           </div>
         </div>
 
-        <div class="bg-gray-900/70 rounded-xl overflow-hidden border border-primary hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl overflow-hidden border border-primary">
           <img src="media/edibles.jpg" alt="Edibles" class="w-full h-48 object-cover" loading="lazy" />
           <div class="p-4">
             <h3 class="text-lg font-bold">Edibles</h3>
@@ -90,64 +91,64 @@
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Flower -->
-        <div class="bg-gray-900/70 rounded-xl p-6 border border-neonGreen hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
           <h3 class="text-2xl font-bold text-neonGreen mb-4">Flower</h3>
           <div class="space-y-4">
-            <div class="bg-gray-800/80 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div class="product-item bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
               <div>
                 <h4 class="font-bold">OG Kush</h4>
                 <p class="text-sm text-gray-400">Indica dominant</p>
               </div>
-              <span class="text-neonGreen font-bold">$60</span>
+              <button class="add-product-btn text-neonGreen font-bold">$60</button>
             </div>
-            <div class="bg-gray-800/80 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div class="product-item bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
               <div>
                 <h4 class="font-bold">Sour Diesel</h4>
                 <p class="text-sm text-gray-400">Sativa dominant</p>
               </div>
-              <span class="text-neonGreen font-bold">$65</span>
+              <button class="add-product-btn text-neonGreen font-bold">$65</button>
             </div>
           </div>
         </div>
 
         <!-- Concentrates -->
-        <div class="bg-gray-900/70 rounded-xl p-6 border border-neonGreen hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
           <h3 class="text-2xl font-bold text-neonGreen mb-4">Concentrates</h3>
           <div class="space-y-4">
-            <div class="bg-gray-800/80 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div class="product-item bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
               <div>
                 <h4 class="font-bold">Live Resin</h4>
                 <p class="text-sm text-gray-400">Full spectrum</p>
               </div>
-              <span class="text-neonGreen font-bold">$80</span>
+              <button class="add-product-btn text-neonGreen font-bold">$80</button>
             </div>
-            <div class="bg-gray-800/80 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div class="product-item bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
               <div>
                 <h4 class="font-bold">Rosin</h4>
                 <p class="text-sm text-gray-400">Solventless</p>
               </div>
-              <span class="text-neonGreen font-bold">$90</span>
+              <button class="add-product-btn text-neonGreen font-bold">$90</button>
             </div>
           </div>
         </div>
 
         <!-- Edibles -->
-        <div class="bg-gray-900/70 rounded-xl p-6 border border-neonGreen hover:scale-105 transition-transform">
+        <div class="bg-gray-900 rounded-xl p-6 border border-neonGreen">
           <h3 class="text-2xl font-bold text-neonGreen mb-4">Edibles</h3>
           <div class="space-y-4">
-            <div class="bg-gray-800/80 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div class="product-item bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
               <div>
                 <h4 class="font-bold">Gummies</h4>
                 <p class="text-sm text-gray-400">100mg THC</p>
               </div>
-              <span class="text-neonGreen font-bold">$25</span>
+              <button class="add-product-btn text-neonGreen font-bold">$25</button>
             </div>
-            <div class="bg-gray-800/80 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
+            <div class="product-item bg-gray-800 p-4 rounded-lg flex justify-between hover:bg-gray-700 transition">
               <div>
                 <h4 class="font-bold">Chocolate Bar</h4>
                 <p class="text-sm text-gray-400">200mg THC</p>
               </div>
-              <span class="text-neonGreen font-bold">$35</span>
+              <button class="add-product-btn text-neonGreen font-bold">$35</button>
             </div>
           </div>
         </div>
@@ -156,7 +157,7 @@
     </section>
 
     <!-- Special Offers -->
-    <section class="bg-gray-900/70 rounded-xl p-8 border border-green-500 mb-12 hover:scale-105 transition-transform">
+    <section class="bg-gray-900 rounded-xl p-8 border border-green-500 mb-12">
       <h2 class="text-3xl font-bold text-neonGreen mb-6 text-center">Special Offers</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-gradient-to-r from-green-900 to-black p-6 rounded-xl">
@@ -176,30 +177,14 @@
       </div>
     </section>
 
-    <!-- CTA with Added to Cart popup -->
-    <section class="text-center">
-      <h2 class="text-3xl font-bold text-neonPink mb-4">
-        Ready to get lifted?
-      </h2>
-      <p class="text-gray-400 mb-6">
-        Discreet delivery. Questionable life choices.
-      </p>
-
-      <div class="relative inline-block">
-        <button id="add-to-cart-btn" class="bg-neonGreen text-black font-bold py-3 px-6 rounded-full hover:opacity-90 focus:ring-2 focus:ring-neonGreen focus:outline-none">
-          <i data-feather="shopping-cart" class="inline mr-2"></i>
-          Add to Cart
-        </button>
-
-        <span id="cart-popup" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-0 transition-opacity duration-300">
-          Added to Cart
-        </span>
-      </div>
-    </section>
-
   </main>
 
   <custom-footer></custom-footer>
+
+  <!-- Added to Cart Popup Element -->
+  <span id="product-cart-popup" class="fixed top-5 left-1/2 -translate-x-1/2 bg-black text-white text-sm font-bold px-3 py-1 rounded opacity-0 transition-opacity duration-300 z-50">
+    Added to Cart
+  </span>
 
   <script src="components/navbar.js"></script>
   <script src="components/footer.js"></script>
@@ -207,18 +192,34 @@
   <script>
     feather.replace();
 
-    // Added to Cart popup logic
-    const btn = document.getElementById('add-to-cart-btn');
-    const popup = document.getElementById('cart-popup');
+    // Main CTA Add to Cart popup
+    const mainBtn = document.getElementById('add-to-cart-btn');
+    const mainPopup = document.getElementById('cart-popup');
 
-    btn.addEventListener('click', () => {
-      popup.classList.remove('opacity-0');
-      popup.classList.add('opacity-100');
+    mainBtn.addEventListener('click', () => {
+      mainPopup.classList.remove('opacity-0');
+      mainPopup.classList.add('opacity-100');
 
       setTimeout(() => {
-        popup.classList.remove('opacity-100');
-        popup.classList.add('opacity-0');
+        mainPopup.classList.remove('opacity-100');
+        mainPopup.classList.add('opacity-0');
       }, 1000);
+    });
+
+    // Product menu buttons Add to Cart popup
+    const productBtns = document.querySelectorAll('.add-product-btn');
+    const productPopup = document.getElementById('product-cart-popup');
+
+    productBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        productPopup.classList.remove('opacity-0');
+        productPopup.classList.add('opacity-100');
+
+        setTimeout(() => {
+          productPopup.classList.remove('opacity-100');
+          productPopup.classList.add('opacity-0');
+        }, 1000);
+      });
     });
   </script>
 </body>
