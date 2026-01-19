@@ -222,6 +222,10 @@
             min-width: 300px;
             text-align: center;
         }
-    </style>
+    </style><script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
+</script>
 </body>
 </html>
