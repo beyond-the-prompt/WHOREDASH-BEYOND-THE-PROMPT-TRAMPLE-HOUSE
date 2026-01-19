@@ -1,0 +1,14 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "fullscreen",
+  "name": "beyond-the-prompt.github",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "beyond-the-prompt.github",
+  "start_url": "/login.html",
+  "theme_color": "#ffffff",
+  "categories": [
+    "lifestyle"
+  ]
+}
